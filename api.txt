@@ -113,6 +113,7 @@ Custom mob functions inside mob registry:
         'on_breed' called when two similar mobs breed, paramaters are (parent1, parent2) objects, return false to stop child from being resized and owner/tamed flags and child textures being applied.
         'on_grown' is called when a child mob has grown up, only paramater is (self).
         'do_punch' called when mob is punched with paramaters (self, hitter, time_from_last_punch, tool_capabilities, direction), return false to stop punch damage and knockback from taking place.
+	'after_on_activate' called after a mob is activated. This is called with parameters (self, staticdata, def, dtime, activation_result) where activation_result is whatever mob_activate() call returns. This function is called just after the activation ('mob_activate') function is called.
 
 
 
