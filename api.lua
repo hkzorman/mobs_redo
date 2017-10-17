@@ -2763,7 +2763,11 @@ minetest.register_entity(name, {
 	on_grown = def.on_grown,
 
 	on_activate = function(self, staticdata, dtime)
-		return mob_activate(self, staticdata, def, dtime)
+		local result = mob_activate(self, staticdata, def, dtime)
+		if def.after_on_activate then
+			return def.after_on_activate(self, staticdata, def, dtime, result)	
+		end
+		return result
 	end,
 
 	get_staticdata = function(self)
